@@ -5,6 +5,7 @@ import org.brazil.generation.demo.UsuarioRepository;
 import org.brazil.generation.demo.exception.ResourceNotFoundException;
 import org.brazil.generation.demo.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class UsuarioController {
     private UsuarioRepository usuarioRepository;
 
     @PostMapping("/usuario")
+    @ResponseStatus(HttpStatus.CREATED)
     public void save (@RequestBody Usuario usuario){
         usuarioRepository.save(usuario);
     }
